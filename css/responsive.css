@@ -1,0 +1,34 @@
+/* ============================================= */
+/* ESTILOS RESPONSIVOS                           */
+/* ============================================= */
+
+@media (max-width: 1024px) {
+  .barra-busqueda { width: 200px; }
+  .barra-estadisticas { margin: var(--spacing-md) var(--spacing-lg); }
+}
+
+@media (max-width: 768px) {
+  .barra-lateral { transform: translateX(-100%); }
+  .barra-lateral--abierta { transform: translateX(0); box-shadow: var(--shadow-lg); }
+  
+  .contenido-principal { margin-left: 0; }
+  .encabezado-principal__boton-menu { display: flex; }
+
+  .encabezado-principal {
+    padding: var(--spacing-md);
+    flex-wrap: wrap;
+    height: auto;
+    gap: var(--spacing-sm);
+  }
+
+  .encabezado-principal__derecha { width: 100%; order: 3; }
+  .barra-busqueda { flex: 1; width: auto; }
+
+  .barra-estadisticas { flex-wrap: wrap; justify-content: center; }
+  .barra-estadisticas__divisor { display: none; }
+
+  .formulario-tarea__opciones { flex-direction: column; align-items: stretch; }
+  .formulario-tarea__boton-enviar { margin-left: 0; justify-content: center; }
+
+  .item-tarea__derecha { opacity: 1; }
+}

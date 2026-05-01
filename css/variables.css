@@ -1,0 +1,97 @@
+/* ============================================= */
+/* VARIABLES GLOBALES Y TOKENS DE DISENO         */
+/* ============================================= */
+/* Este archivo centraliza todos los valores      */
+/* reutilizables del proyecto: colores, fuentes,  */
+/* espaciado, bordes y sombras.                   */
+/* ============================================= */
+
+:root {
+  /* -- Colores principales -- */
+  --color-primary: hsl(235, 70%, 60%);
+  --color-primary-light: hsl(235, 70%, 72%);
+  --color-primary-dark: hsl(235, 70%, 48%);
+  --color-primary-glow: hsla(235, 70%, 60%, 0.25);
+
+  /* -- Colores de fondo -- */
+  --bg-app: hsl(228, 25%, 10%);
+  --bg-sidebar: hsl(228, 25%, 12%);
+  --bg-main: hsl(228, 20%, 14%);
+  --bg-card: hsl(228, 20%, 17%);
+  --bg-card-hover: hsl(228, 20%, 20%);
+  --bg-input: hsl(228, 20%, 13%);
+  --bg-input-focus: hsl(228, 20%, 15%);
+  --bg-overlay: hsla(0, 0%, 0%, 0.6);
+
+  /* -- Colores de texto -- */
+  --text-primary: hsl(220, 20%, 92%);
+  --text-secondary: hsl(220, 15%, 60%);
+  --text-muted: hsl(220, 10%, 42%);
+  --text-inverse: hsl(228, 25%, 10%);
+
+  /* -- Colores de estado -- */
+  --color-success: hsl(152, 60%, 48%);
+  --color-success-light: hsla(152, 60%, 48%, 0.15);
+  --color-warning: hsl(38, 90%, 58%);
+  --color-warning-light: hsla(38, 90%, 58%, 0.15);
+  --color-danger: hsl(0, 70%, 58%);
+  --color-danger-light: hsla(0, 70%, 58%, 0.15);
+
+  /* -- Colores de prioridad -- */
+  --priority-high: hsl(0, 70%, 58%);
+  --priority-high-bg: hsla(0, 70%, 58%, 0.12);
+  --priority-medium: hsl(38, 90%, 58%);
+  --priority-medium-bg: hsla(38, 90%, 58%, 0.12);
+  --priority-low: hsl(152, 60%, 48%);
+  --priority-low-bg: hsla(152, 60%, 48%, 0.12);
+
+  /* -- Colores de categorias -- */
+  --tag-personal: hsl(270, 60%, 62%);
+  --tag-personal-bg: hsla(270, 60%, 62%, 0.14);
+  --tag-work: hsl(200, 70%, 55%);
+  --tag-work-bg: hsla(200, 70%, 55%, 0.14);
+  --tag-study: hsl(35, 85%, 58%);
+  --tag-study-bg: hsla(35, 85%, 58%, 0.14);
+
+  /* -- Bordes -- */
+  --border-color: hsl(228, 15%, 22%);
+  --border-color-hover: hsl(228, 15%, 30%);
+  --border-radius-sm: 6px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 14px;
+  --border-radius-xl: 20px;
+  --border-radius-full: 50%;
+
+  /* -- Tipografia -- */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-size-xs: 0.7rem;
+  --font-size-sm: 0.8rem;
+  --font-size-base: 0.925rem;
+  --font-size-md: 1.05rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.6rem;
+  --font-size-xxl: 2rem;
+
+  /* -- Espaciado -- */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+
+  /* -- Sombras -- */
+  --shadow-sm: 0 1px 3px hsla(0, 0%, 0%, 0.2);
+  --shadow-md: 0 4px 12px hsla(0, 0%, 0%, 0.25);
+  --shadow-lg: 0 8px 30px hsla(0, 0%, 0%, 0.35);
+  --shadow-glow: 0 0 20px var(--color-primary-glow);
+
+  /* -- Transiciones -- */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* -- Dimensiones del layout -- */
+  --sidebar-width: 260px;
+  --header-height: 70px;
+}

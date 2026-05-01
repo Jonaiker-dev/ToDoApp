@@ -1,0 +1,48 @@
+/* ============================================= */
+/* ANIMACIONES Y TRANSICIONES                    */
+/* ============================================= */
+
+@keyframes entradaDeslizar {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes salidaDeslizar {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(40px); }
+}
+
+@keyframes entradaModal {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes sacudida {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+/* -- Clases Utilitarias para JS -- */
+
+.animacion-entrada-deslizar {
+  animation: entradaDeslizar var(--transition-base) ease forwards;
+}
+
+.animacion-salida-deslizar {
+  animation: salidaDeslizar var(--transition-base) ease forwards;
+}
+
+.animacion-entrada-modal {
+  animation: entradaModal var(--transition-base) ease forwards;
+}
+
+.animacion-sacudida {
+  animation: sacudida 0.4s ease;
+}
+
+.animacion-reordenar {
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}

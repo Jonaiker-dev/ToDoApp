@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aplicacion de gestion de tareas con interfaz moderna">
+  <title>TaskFlow - Gestor de Tareas</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ============================================= -->
+  <!-- CONTENEDOR PRINCIPAL DE LA APLICACION         -->
+  <!-- ============================================= -->
+  <div class="contenedor-aplicacion" id="contenedor-app">
+
+    <!-- =========================================== -->
+    <!-- BARRA LATERAL / SIDEBAR                     -->
+    <!-- =========================================== -->
+    <aside class="barra-lateral" id="barra-lateral">
+      <div class="barra-lateral__encabezado">
+        <div class="barra-lateral__logo">
+          <span class="barra-lateral__logo-icono">&#10003;</span>
+          <h1 class="barra-lateral__titulo">TaskFlow</h1>
+        </div>
+      </div>
+
+      <!-- Navegacion de categorias -->
+      <nav class="barra-lateral__navegacion" id="navegacion-lateral">
+        <ul class="barra-lateral__lista-categorias" id="lista-categorias">
+          <li class="barra-lateral__item-categoria barra-lateral__item-categoria--activo" data-categoria="todas">
+            <span class="barra-lateral__icono-categoria">&#9776;</span>
+            <span class="barra-lateral__nombre-categoria">Todas</span>
+            <span class="barra-lateral__conteo-categoria" id="conteo-todas">4</span>
+          </li>
+          <li class="barra-lateral__item-categoria" data-categoria="personal">
+            <span class="barra-lateral__icono-categoria">&#9733;</span>
+            <span class="barra-lateral__nombre-categoria">Personal</span>
+            <span class="barra-lateral__conteo-categoria" id="conteo-personal">2</span>
+          </li>
+          <li class="barra-lateral__item-categoria" data-categoria="trabajo">
+            <span class="barra-lateral__icono-categoria">&#9881;</span>
+            <span class="barra-lateral__nombre-categoria">Trabajo</span>
+            <span class="barra-lateral__conteo-categoria" id="conteo-trabajo">1</span>
+          </li>
+          <li class="barra-lateral__item-categoria" data-categoria="estudio">
+            <span class="barra-lateral__icono-categoria">&#9998;</span>
+            <span class="barra-lateral__nombre-categoria">Estudio</span>
+            <span class="barra-lateral__conteo-categoria" id="conteo-estudio">1</span>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Boton para agregar nueva categoria -->
+      <div class="barra-lateral__pie">
+        <button class="barra-lateral__boton-agregar-categoria" id="boton-agregar-categoria" type="button">
+          <span class="barra-lateral__icono-agregar">+</span>
+          <span>Nueva Categoria</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- =========================================== -->
+    <!-- CONTENIDO PRINCIPAL                         -->
+    <!-- =========================================== -->
+    <main class="contenido-principal" id="contenido-principal">
+
+      <!-- Encabezado principal -->
+      <header class="encabezado-principal" id="encabezado-principal">
+        <div class="encabezado-principal__izquierda">
+          <button class="encabezado-principal__boton-menu" id="boton-alternar-menu" type="button">
+            <span class="encabezado-principal__icono-menu">&#9776;</span>
+          </button>
+          <div class="encabezado-principal__informacion">
+            <h2 class="encabezado-principal__titulo" id="titulo-principal">Todas las Tareas</h2>
+            <p class="encabezado-principal__subtitulo" id="subtitulo-principal">Miercoles, 30 de Abril 2026</p>
+          </div>
+        </div>
+        <div class="encabezado-principal__derecha">
+          <!-- Buscador -->
+          <div class="barra-busqueda" id="barra-busqueda">
+            <span class="barra-busqueda__icono">&#128269;</span>
+            <input
+              type="text"
+              class="barra-busqueda__entrada"
+              id="entrada-busqueda"
+              placeholder="Buscar tareas..."
+              autocomplete="off"
+            >
+            <button class="barra-busqueda__boton-limpiar" id="boton-limpiar-busqueda" type="button">&#10005;</button>
+          </div>
+          <!-- Filtro de estado -->
+          <div class="filtro-desplegable" id="desplegable-filtro">
+            <button class="filtro-desplegable__boton" id="boton-filtro" type="button">
+              <span>Filtrar</span>
+              <span class="filtro-desplegable__flecha">&#9662;</span>
+            </button>
+            <ul class="filtro-desplegable__menu" id="menu-filtro">
+              <li class="filtro-desplegable__opcion filtro-desplegable__opcion--activa" data-filtro="todas">Todas</li>
+              <li class="filtro-desplegable__opcion" data-filtro="pendientes">Pendientes</li>
+              <li class="filtro-desplegable__opcion" data-filtro="completadas">Completadas</li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- ========================================= -->
+      <!-- FORMULARIO PARA CREAR NUEVA TAREA         -->
+      <!-- ========================================= -->
+      <section class="seccion-formulario-tarea" id="seccion-formulario-tarea">
+        <form class="formulario-tarea" id="formulario-tarea" action="#" method="post">
+          <div class="formulario-tarea__grupo-entrada">
+            <input
+              type="text"
+              class="formulario-tarea__entrada"
+              id="entrada-tarea"
+              placeholder="Escribe una nueva tarea..."
+              required
+              autocomplete="off"
+            >
+          </div>
+
+          <!-- Opciones adicionales del formulario -->
+          <div class="formulario-tarea__opciones" id="opciones-formulario-tarea">
+            <!-- Selector de prioridad -->
+            <div class="formulario-tarea__grupo-opcion">
+              <label class="formulario-tarea__etiqueta" for="prioridad-tarea">Prioridad</label>
+              <select class="formulario-tarea__seleccion" id="prioridad-tarea" name="prioridad">
+                <option value="baja">Baja</option>
+                <option value="media" selected>Media</option>
+                <option value="alta">Alta</option>
+              </select>
+            </div>
+
+            <!-- Selector de categoria -->
+            <div class="formulario-tarea__grupo-opcion">
+              <label class="formulario-tarea__etiqueta" for="categoria-tarea">Categoria</label>
+              <select class="formulario-tarea__seleccion" id="categoria-tarea" name="categoria">
+                <option value="personal">Personal</option>
+                <option value="trabajo">Trabajo</option>
+                <option value="estudio">Estudio</option>
+              </select>
+            </div>
+
+            <!-- Selector de fecha -->
+            <div class="formulario-tarea__grupo-opcion">
+              <label class="formulario-tarea__etiqueta" for="fecha-tarea">Fecha limite</label>
+              <input type="date" class="formulario-tarea__fecha" id="fecha-tarea" name="fecha-limite">
+            </div>
+
+            <!-- Boton de envio -->
+            <button class="formulario-tarea__boton-enviar" id="boton-enviar-tarea" type="submit">
+              <span class="formulario-tarea__icono-enviar">+</span>
+              <span class="formulario-tarea__texto-enviar">Agregar</span>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- ESTADISTICAS RAPIDAS                      -->
+      <!-- ========================================= -->
+      <section class="barra-estadisticas" id="barra-estadisticas">
+        <div class="barra-estadisticas__item">
+          <span class="barra-estadisticas__numero" id="estadistica-total">0</span>
+          <span class="barra-estadisticas__etiqueta">Total</span>
+        </div>
+        <div class="barra-estadisticas__divisor"></div>
+        <div class="barra-estadisticas__item">
+          <span class="barra-estadisticas__numero barra-estadisticas__numero--pendiente" id="estadistica-pendientes">0</span>
+          <span class="barra-estadisticas__etiqueta">Pendientes</span>
+        </div>
+        <div class="barra-estadisticas__divisor"></div>
+        <div class="barra-estadisticas__item">
+          <span class="barra-estadisticas__numero barra-estadisticas__numero--completada" id="estadistica-completadas">0</span>
+          <span class="barra-estadisticas__etiqueta">Completadas</span>
+        </div>
+        <div class="barra-estadisticas__divisor"></div>
+        <div class="barra-estadisticas__item">
+          <div class="barra-estadisticas__contenedor-progreso">
+            <div class="barra-estadisticas__barra-progreso">
+              <div class="barra-estadisticas__relleno-progreso" id="relleno-progreso-estadistica" style="width: 0%"></div>
+            </div>
+            <span class="barra-estadisticas__texto-progreso" id="texto-progreso-estadistica">0%</span>
+          </div>
+          <span class="barra-estadisticas__etiqueta">Progreso</span>
+        </div>
+      </section>
+
+      <!-- ========================================= -->
+      <!-- LISTA DE TAREAS                           -->
+      <!-- ========================================= -->
+      <section class="seccion-lista-tareas" id="seccion-lista-tareas">
+        <ul class="lista-tareas" id="lista-tareas">
+          <!-- Las tareas se agregaran aqui dinamicamente con JS -->
+        </ul>
+
+        <!-- Estado vacio (visible por defecto) -->
+        <div class="estado-vacio estado-vacio--visible" id="estado-vacio">
+          <div class="estado-vacio__icono">&#9745;</div>
+          <h3 class="estado-vacio__titulo">No hay tareas</h3>
+          <p class="estado-vacio__mensaje">Agrega una nueva tarea para comenzar</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ============================================= -->
+  <!-- MODAL PARA EDITAR TAREA (oculto por defecto)  -->
+  <!-- ============================================= -->
+  <div class="superposicion-modal" id="superposicion-modal">
+    <div class="modal" id="modal-edicion">
+      <div class="modal__encabezado">
+        <h3 class="modal__titulo">Editar Tarea</h3>
+        <button class="modal__boton-cerrar" id="boton-cerrar-modal" type="button">&#10005;</button>
+      </div>
+      <form class="modal__formulario" id="formulario-edicion">
+        <div class="modal__campo">
+          <label class="modal__etiqueta" for="editar-titulo-tarea">Titulo</label>
+          <input type="text" class="modal__entrada" id="editar-titulo-tarea" placeholder="Titulo de la tarea" required>
+        </div>
+        <div class="modal__campo">
+          <label class="modal__etiqueta" for="editar-prioridad-tarea">Prioridad</label>
+          <select class="modal__seleccion" id="editar-prioridad-tarea">
+            <option value="baja">Baja</option>
+            <option value="media">Media</option>
+            <option value="alta">Alta</option>
+          </select>
+        </div>
+        <div class="modal__campo">
+          <label class="modal__etiqueta" for="editar-categoria-tarea">Categoria</label>
+          <select class="modal__seleccion" id="editar-categoria-tarea">
+            <option value="personal">Personal</option>
+            <option value="trabajo">Trabajo</option>
+            <option value="estudio">Estudio</option>
+          </select>
+        </div>
+        <div class="modal__campo">
+          <label class="modal__etiqueta" for="editar-fecha-tarea">Fecha limite</label>
+          <input type="date" class="modal__entrada" id="editar-fecha-tarea">
+        </div>
+        <div class="modal__acciones">
+          <button class="modal__boton-cancelar" id="boton-cancelar-modal" type="button">Cancelar</button>
+          <button class="modal__boton-guardar" id="boton-guardar-modal" type="submit">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================= -->
+  <!-- NOTIFICACION TOAST (oculta por defecto)       -->
+  <!-- ============================================= -->
+  <div class="contenedor-notificacion" id="contenedor-notificaciones">
+    <div class="notificacion" id="notificacion">
+      <span class="notificacion__icono" id="icono-notificacion">&#10003;</span>
+      <span class="notificacion__mensaje" id="mensaje-notificacion">Tarea creada exitosamente</span>
+      <button class="notificacion__cerrar" id="boton-cerrar-notificacion" type="button">&#10005;</button>
+    </div>
+  </div>
+
+</body>
+</html>
